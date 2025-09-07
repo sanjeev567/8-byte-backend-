@@ -28,6 +28,13 @@ const corsOptions = {
 };
 app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
+// Explicit preflight handler for all routes
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+    res.sendStatus(200);
+});
 // GET /api/yahoo-cmp?symbol=XYZ
 app.get("/api/yahoo-cmp", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const symbol = req.query.symbol;
