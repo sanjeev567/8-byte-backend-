@@ -12,7 +12,11 @@ import cheerio from "cheerio";
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://8-byte-frontend.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://8-byte-frontend.vercel.app",
+      "https://8-byte-backend-gq6ypepsl-sanjeev-singhs-projects-9411e7d3.vercel.app",
+    ],
     optionsSuccessStatus: 200,
   })
 );
