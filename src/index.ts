@@ -12,14 +12,7 @@ import cheerio from "cheerio";
 
 // Configure CORS to allow requests from your frontend
 const corsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://8-byte-frontend-3gs6l821q-sanjeev-singhs-projects-9411e7d3.vercel.app",
-    "https://8-byte-frontend.vercel.app", // Add your production domain if different
-    /\.vercel\.app$/, // Allow all vercel domains for your project
-  ],
-  credentials: true,
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
 };
