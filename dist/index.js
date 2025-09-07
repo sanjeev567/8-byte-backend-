@@ -20,21 +20,11 @@ const cors_1 = __importDefault(require("cors"));
 const axios_1 = __importDefault(require("axios"));
 const yahoo_finance2_1 = __importDefault(require("yahoo-finance2"));
 const cheerio_1 = __importDefault(require("cheerio"));
-// Configure CORS to allow requests from your frontend
-const corsOptions = {
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-};
-app.use((0, cors_1.default)(corsOptions));
+app.use((0, cors_1.default)({
+    origin: "http://localhost:5173",
+    optionsSuccessStatus: 200,
+}));
 app.use(express_1.default.json());
-// Explicit preflight handler for all routes
-app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-    res.sendStatus(200);
-});
 // GET /api/yahoo-cmp?symbol=XYZ
 app.get("/api/yahoo-cmp", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const symbol = req.query.symbol;
