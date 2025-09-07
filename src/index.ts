@@ -20,9 +20,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Handle preflight requests
-app.options("*", cors(corsOptions));
-
 // GET /api/yahoo-cmp?symbol=XYZ
 app.get("/api/yahoo-cmp", async (req, res) => {
   const symbol = req.query.symbol as string;
